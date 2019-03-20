@@ -1,0 +1,24 @@
+#cas
+eulermethod(g,t0,y0,h,n):=
+BEGIN 
+local t;
+local y1;
+local m;
+local yn;
+local tn;
+t:=t0;
+y1:=y0;
+g:=expr(g);
+FOR J FROM 1 TO n DO
+    m:=g(x=t,y=y1);
+    yn:=y1 + h*m;
+    tn:=t+h;
+    PRINT("New t = " +tn);
+    PRINT("New y = "+yn);
+    t:=tn;
+    y1:=eval(yn);
+
+END;
+return eval(y1);
+END;
+#end 
